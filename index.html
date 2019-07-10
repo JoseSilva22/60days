@@ -3,23 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>60 days</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 <body>
-	<p id="percentage"></p>
+	<div class="w3-light-grey">
+	    <div id="myBar" class="w3-container w3-pink w3-center" style="width:0%">0%</div>
+	</div>
 	<script>
-		var start = new Date(2019, 6, 28, 14, 32, 0, 0);
-		var end = new Date(2019, 8, 27, 14, 32, 0, 0);
-		end.setDate(end.getDate() + 61);
+		var start = new Date(2019, 5, 28, 14, 32, 0, 0);
+		var end = new Date(2019, 7, 27, 14, 32, 0, 0);
 		var startTime = start.getTime()/1000;
 		var endTime = end.getTime()/1000;
 
-
-		function updateBar() {
+		(function updateBar() {
 			currTime = Date.now()/1000;
 			percent = (currTime - startTime) / (endTime - startTime) * 100;
-			document.getElementById("percentage").innerHTML = percent;
-		}
-
-		var timer = setInterval(updateBar, 1000);
+			percent = percent.toFixed(4);		
+			
+			if (percent >= 100) {
+			    percent = 100;
+			}
+			var elem = document.getElementById("myBar");  			
+			elem.style.width = percent + '%'; 
+			elem.innerHTML = percent  + '%';			
+			
+			setTimeout(updateBar, 5000);
+		})()
+		
 	</script>
 </body>

@@ -9,7 +9,7 @@ var endTime = end.getTime()/1000;
 function updateBar() {
 	currTime = Date.now()/1000;
 	percent = (currTime - startTime) / (endTime - startTime) * 100;
-    document.getElementById("percentage").innerHTML = percent;
+    document.getElementById("percentage").innerHTML = percent.toFixed(4);
 }
 
 var timer = setInterval(updateBar, 1000);
