@@ -1,4 +1,4 @@
-document.write('<p>oi</p>');
+
 var start = new Date(2019, 6, 28, 14, 32, 0, 0);
 var end = new Date(2019, 8, 27, 14, 32, 0, 0);
 end.setDate(end.getDate() + 61);
