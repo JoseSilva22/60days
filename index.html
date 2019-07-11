@@ -34,11 +34,16 @@
 		})()
 		
 		function startPlayback() {
+			document.querySelector('#music').addEventListener('ended', function() {
+				this.currentTime = 0;
+				this.play();
+			}, false);
 		    return document.querySelector('#music').play();
 		}
 		
 		startPlayback().then(function() {
-		
+			var playButton = document.querySelector('#play');
+			playButton.hidden = false;
 		}).catch(function(error) {
 			var playButton = document.querySelector('#play');
 			playButton.addEventListener('click', startPlayback);
