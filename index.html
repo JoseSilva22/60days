@@ -33,6 +33,10 @@
 			setTimeout(updateBar, 5000);
 		})()
 		
+		function startPlayback() {
+		    return document.querySelector('#music').play();
+		}
+		
 		startPlayback().then(function() {
 		
 		}).catch(function(error) {
