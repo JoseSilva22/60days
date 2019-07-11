@@ -9,6 +9,8 @@
 	<div class="w3-light-grey">
 	    <div id="myBar" class="w3-container w3-pink w3-center" style="width:0%">0%</div>
 	</div>
+	<audio id="music" src="elevator.mp3"></audio>
+	<button id="play" hidden>Play</button>
 	
 	<script>
 		var start = new Date(2019, 5, 28, 14, 32, 0, 0);
@@ -31,20 +33,13 @@
 			setTimeout(updateBar, 5000);
 		})()
 		
-		var myAudio = new Audio('elevator.mp3'); 
-		myAudio.addEventListener('ended', function() {
-			this.currentTime = 0;
-			this.play();
-		}, false);
-		var promise = myAudio.play();
-
-		if (promise !== undefined) {
-			promise.then(_ => {
+		startPlayback().then(function() {
 		
-			}).catch(error => {
-				myAudio.play();
-			});
-		}
+		}).catch(function(error) {
+			var playButton = document.querySelector('#play');
+			playButton.addEventListener('click', startPlayback);
+			playButton.hidden = false;
+		});
 		
 		
 	</script>
