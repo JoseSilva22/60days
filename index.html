@@ -43,7 +43,7 @@
 		
 		startPlayback().then(function() {
 			var playButton = document.querySelector('#play');
-			playButton.hidden = false;
+			playButton.hidden = true;
 		}).catch(function(error) {
 			var playButton = document.querySelector('#play');
 			playButton.addEventListener('click', startPlayback);
