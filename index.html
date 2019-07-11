@@ -30,7 +30,7 @@
 			setTimeout(updateBar, 5000);
 		})()
 		
-		myAudio = new Audio('elevator.mp3'); 
+		var myAudio = new Audio('elevator.mp3'); 
 		myAudio.addEventListener('ended', function() {
 			this.currentTime = 0;
 			this.play();
