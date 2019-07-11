@@ -35,9 +35,9 @@
 			this.currentTime = 0;
 			this.play();
 		}, false);
-		myAudio.play();
+		//myAudio.play();
 		
-		var promise = document.querySelector('video').play();
+		var promise = document.querySelector('audio').play();
 
 		if (promise !== undefined) {
 			promise.then(_ => {
